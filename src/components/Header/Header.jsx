@@ -5,8 +5,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { BtnToggleTheme } from 'components/BtnToggleTheme/BtnToggleTheme';
 
-
-export const Header = ({ arrCurrency, colorMode, theme }) => {
+export const Header = ({ arrCurrency }) => {
 
    return (
       <AppBar position="static">
@@ -50,7 +49,7 @@ export const Header = ({ arrCurrency, colorMode, theme }) => {
                      € {arrCurrency['EUR'].rateBuy} / {arrCurrency['EUR'].rateSell.toFixed(2)}
                   </Typography>
                </Box>}
-               <BtnToggleTheme colorMode={colorMode} theme={theme} />
+               <BtnToggleTheme />
             </Toolbar>
          </Container>
       </AppBar >

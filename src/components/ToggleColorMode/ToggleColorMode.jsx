@@ -2,7 +2,7 @@ import { App } from "components/App/App";
 import { createContext, useMemo, useState } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-const ColorModeContext = createContext({ toggleColorMode: () => { } });
+export const ColorModeContext = createContext({ toggleColorMode: () => { } });
 
 export const ToggleColorMode = () => {
    const [mode, setMode] = useState('dark');
@@ -28,7 +28,7 @@ export const ToggleColorMode = () => {
    return (
       <ColorModeContext.Provider value={colorMode}>
          <ThemeProvider theme={theme}>
-            <App ColorModeContext={ColorModeContext} />
+            <App />
          </ThemeProvider>
       </ColorModeContext.Provider>
    );

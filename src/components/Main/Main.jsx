@@ -65,6 +65,7 @@ export const Main = ({ arrCurrency }) => {
                <Card sx={{ maxWidth: '500px', py: '20px' }}>
                   <CardContent>
                      <Typography
+                        component='h1'
                         sx={{
                            textAlign: 'center',
                            mb: '30px',

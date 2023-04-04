@@ -1,15 +1,13 @@
 import { Header } from "components/Header/Header";
 import { Main } from "components/Main/Main";
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getCurrencyList } from 'currencyAPI/currencyAPI';
-import { useTheme } from '@mui/material/styles';
 import { AlertCust } from "components/AlertCust/AlertCust";
 
-export const App = ({ ColorModeContext }) => {
+export const App = () => {
   const [arrCurrency, setArrCurrency] = useState(null);
   const [error, setError] = useState(null);
-  const theme = useTheme();
-  const colorMode = useContext(ColorModeContext);
+
 
   const handleCloseAlert = close => {
     setError(close)
@@ -31,7 +29,8 @@ export const App = ({ ColorModeContext }) => {
   return (
     <div className="wrapper">
       {error && !arrCurrency && <AlertCust error={error} handleCloseAlert={handleCloseAlert} />}
-      <Header theme={theme} colorMode={colorMode} arrCurrency={arrCurrency} />
+      {/* <Header theme={theme} colorMode={colorMode} arrCurrency={arrCurrency} /> */}
+      <Header arrCurrency={arrCurrency} />
       <Main arrCurrency={arrCurrency} />
     </div>
   );
