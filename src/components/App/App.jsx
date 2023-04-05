@@ -1,22 +1,22 @@
-import { Header } from "../Header/Header";
-import { Main } from "../Main/Main";
-import { FC, useEffect, useState } from 'react';
-import { getCurrencyList } from '../../currencyAPI/currencyAPI';
-import { IArrCurrency, ICurrency } from "../../models";
-import { AlertCust } from "../AlertCust/AlertCust";
+import { Header } from "components/Header/Header";
+import { Main } from "components/Main/Main";
+import { useEffect, useState } from 'react';
+import { getCurrencyList } from 'currencyAPI/currencyAPI';
+import { AlertCust } from "components/AlertCust/AlertCust";
 
-export const App: FC = () => {
-  const [arrCurrency, setArrCurrency] = useState<IArrCurrency | null>(null);
-  const [error, setError] = useState<string | null>(null);
+export const App = () => {
+  const [arrCurrency, setArrCurrency] = useState(null);
+  const [error, setError] = useState(null);
 
-  const handleCloseAlert = (close: null) => {
+
+  const handleCloseAlert = close => {
     setError(close)
   }
 
   useEffect(() => {
     async function getCurrency() {
       try {
-        const response: ICurrency[] = await getCurrencyList()
+        const response = await getCurrencyList()
         setArrCurrency({ USD: response[0], EUR: response[1], UAH: { rateBuy: 1, rateSell: 1 } })
       } catch (error) {
         console.log(error);
@@ -29,6 +29,7 @@ export const App: FC = () => {
   return (
     <div className="wrapper">
       {error && !arrCurrency && <AlertCust error={error} handleCloseAlert={handleCloseAlert} />}
+      {/* <Header theme={theme} colorMode={colorMode} arrCurrency={arrCurrency} /> */}
       <Header arrCurrency={arrCurrency} />
       <Main arrCurrency={arrCurrency} />
     </div>

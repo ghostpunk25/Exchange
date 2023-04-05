@@ -3,11 +3,9 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { BtnToggleTheme } from '../BtnToggleTheme/BtnToggleTheme';
-import { FC } from 'react';
-import { IArrCurrencyProps } from "../../models";
+import { BtnToggleTheme } from 'components/BtnToggleTheme/BtnToggleTheme';
 
-export const Header: FC<IArrCurrencyProps> = ({ arrCurrency }) => {
+export const Header = ({ arrCurrency }) => {
 
    return (
       <AppBar position="static">

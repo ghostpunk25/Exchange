@@ -1,12 +1,11 @@
+import { useTheme } from '@emotion/react';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import IconButton from '@mui/material/IconButton';
-import { FC, useContext } from 'react';
-import { useTheme } from '@mui/material/styles';
-import { ColorModeContext } from '../ToggleColorMode/ToggleColorMode'
+import { useContext } from 'react';
+import { ColorModeContext } from 'components/ToggleColorMode/ToggleColorMode';
 
-
-export const BtnToggleTheme: FC = () => {
+export const BtnToggleTheme = () => {
    const theme = useTheme();
    const colorMode = useContext(ColorModeContext);
 
