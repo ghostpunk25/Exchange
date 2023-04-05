@@ -37,6 +37,9 @@ export const Main: FC<IArrCurrencyProps> = ({ arrCurrency }) => {
          setInp1('')
          setInp2('')
       }
+      if (value < 0) {
+         setInp2('')
+      }
    }, [arrCurrency, select1, select2])
 
    const handleInp2 = useCallback((value: number) => {
@@ -49,6 +52,9 @@ export const Main: FC<IArrCurrencyProps> = ({ arrCurrency }) => {
       setInp1(+result.toFixed(2))
       if (!value) {
          setInp2('')
+         setInp1('')
+      }
+      if (value < 0) {
          setInp1('')
       }
    }, [arrCurrency, select1, select2])
