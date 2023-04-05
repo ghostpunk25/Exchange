@@ -1,8 +1,13 @@
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
+import { FC } from 'react';
 
+interface IAlertCustProps {
+   handleCloseAlert: (close: null) => void,
+   error: string | null,
+}
 
-export const AlertCust = ({ handleCloseAlert, error }) => {
+export const AlertCust: FC<IAlertCustProps> = ({ handleCloseAlert, error }) => {
    return (
       <Alert
          onClose={() => handleCloseAlert(null)}

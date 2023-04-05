@@ -1,11 +1,11 @@
-import { App } from "components/App/App";
-import { createContext, useMemo, useState } from 'react';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { App } from "../App/App";
+import { createContext, FC, useMemo, useState } from 'react';
+import { ThemeProvider, createTheme, Theme } from '@mui/material/styles';
 
 export const ColorModeContext = createContext({ toggleColorMode: () => { } });
 
-export const ToggleColorMode = () => {
-   const [mode, setMode] = useState('dark');
+export const ToggleColorMode: FC = () => {
+   const [mode, setMode] = useState<'light' | 'dark'>('dark');
    const colorMode = useMemo(
       () => ({
          toggleColorMode: () => {
@@ -15,7 +15,7 @@ export const ToggleColorMode = () => {
       [],
    );
 
-   const theme = useMemo(
+   const theme = useMemo<Theme>(
       () =>
          createTheme({
             palette: {
